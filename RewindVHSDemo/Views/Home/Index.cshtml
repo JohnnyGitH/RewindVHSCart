@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "RewindVHS";
+}
+
+<div class="jumbotron vertical-center">
+    <div class="container">
+        <img src="~/Content/MovieHeader.jpg" alt="Movies Yay" width="800"" />
+
+        <p class="lead"><i>"Imagine Great Movies Being Rented Online, That Is Us."</i></p>
+    </div>
+
+</div>
+
+<div class="row" style="padding-bottom: 150px;">
+    <div class="col-md-4 rowcenter">
+        <h1>Order  <a class="glyphicon glyphicon-film iconspace redcolour"></a></h1>
+        <br />
+        <button  class="btn btn-default">@Html.ActionLink("VHS Collection", "Index", "Product") &raquo;</button>
+    </div>
+
+    <div class="col-md-4 rowcenter">
+        <h1>Delivery <a class="glyphicon glyphicon-envelope iconspace redcolour"></a></h1>
+        <br />
+        <button class="btn btn-default">@Html.ActionLink("Shipping Info", "Delivery", "Home") &raquo;</button>
+    </div>
+    <div class="col-md-4 rowcenter">
+        <h1>Return <a class="glyphicon glyphicon-fast-backward iconspace redcolour"></a></h1>
+        <br />
+       <button class="btn btn-default">@Html.ActionLink("Rules and Regulations", "Return", "Home") &raquo;</button>
+    </div>
+</div>

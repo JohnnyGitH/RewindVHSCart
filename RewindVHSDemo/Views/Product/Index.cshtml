@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using RewindVHSDemo.Models
+<!--This sets the cart token in movie gallery-->
+@{
+    Session["CartToken"] = 1;
+}
+
+<div class="jumbotron vertical-center">
+    <div class="container">
+        <img src="~/Content/tapeexpand.jpg" alt="Movies Yay" width="900" />
+    </div>
+</div>
+
+
+<table>
+    @foreach (Movie movie in ViewBag.listProducts)
+    {
+        <div class="col-md-3 col-sm-6 resize containerfix">
+            <span class="thumbnail">
+                <img class="productThumbnail" src="~/Content/CoverImages/@(movie.movieId).jpg" />
+                <h4>@movie.filmName</h4>
+                <p class="castnameheight">@movie.filmCast</p>              
+                <hr class="line">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="price">$@movie.filmPrice</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <button class="btn btn-default right">@Html.ActionLink("Rent", "OrderNow" , "ShoppingCart" ,new { id = movie.movieId },null)</button>
+                    </div>
+
+                </div>
+            </span>
+        </div>
+    }
+</table>
+<hr/>

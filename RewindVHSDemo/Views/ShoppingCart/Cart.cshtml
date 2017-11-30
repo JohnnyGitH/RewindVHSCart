@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+}
+@using RewindVHSDemo.Controllers;
+
+
+<div class="jumbotron vertical-center">
+    <div class="container">
+        <img src="~/Content/CartHeader.jpg" alt="Carts Yay" width="900" />
+    </div>
+</div>
+
+<h2>Cart</h2>
+
+<body>
+    <div class="row">
+        
+        <div class="col-md-2">
+           
+        </div>
+        <div class="col-md-2">
+            <!-- Image here-->
+        </div>
+        <div class="col-md-2">
+           <h4>Name</h4> 
+        </div>
+        <div class="col-md-2">
+           <h4>Price</h4> 
+        </div>
+        <div class="col-md-2">
+            <h4>Quantity</h4>
+        </div>
+        <div class="col-md-2">
+            <h4>Sub total</h4>
+        </div>
+        <hr />
+        @foreach (Item item in (List<Item>)Session["cart"])
+            {
+            <div class="row ">
+                <div class="col-md-2 rowPadding">
+                    @Html.ActionLink("Remove", "Delete","ShoppingCart", new { id = item.Movie.movieId } , null)
+                </div>
+                <div class="col-md-2">
+                    <img class="cartThumbnail " src="~/Content/CoverImages/@(item.Movie.movieId).jpg" height="30px" />
+                </div>
+                <div class="col-md-2 rowPadding">
+                    @item.Movie.filmName
+                </div>
+                <div class="col-md-2 rowPadding">
+                    $@item.Movie.filmPrice
+                </div>
+                <div class="col-md-2 rowPadding">
+                    @item.Quantity
+                </div>
+                <div class="col-md-2 rowPadding">
+                    $@(item.Movie.filmPrice * item.Quantity)
+                </div>
+            </div>
+            <hr />
+        }     
+    </div>
+   
+      
+        @{
+            double total = 0;
+        }
+        @foreach (Item item2 in (List<Item>)Session["cart"])
+        {
+            double itemPrice = (double)item2.Movie.filmPrice;
+             total = total + (itemPrice*item2.Quantity);
+        }
+    <div class="col-md-11"></div>
+    <div class="col-md-1">
+        <h2>Total</h2>
+        <h3>$@total.ToString("0.00")</h3>
+        <hr />
+    </div>
+    <div>
+        <br />
+        <hr />
+        <button class="btn btn-default">@Html.ActionLink("Continue Shopping", "Index", "Product")</button>
+    </div>
+    
+</body>
