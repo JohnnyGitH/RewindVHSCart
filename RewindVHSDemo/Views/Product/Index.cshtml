@@ -21,12 +21,12 @@
         <div class="col-md-3 col-sm-6 resize containerfix">
             <span class="thumbnail">
                 <img class="productThumbnail" src="~/Content/CoverImages/@(movie.movieId).jpg" />
-                <h4>@movie.filmName</h4>
-                <p class="castnameheight">@movie.filmCast</p>              
+                <h4>@movie.movieName</h4>
+                <p class="castnameheight">@movie.movieCast</p>              
                 <hr class="line">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
-                        <p class="price">$@movie.filmPrice</p>
+                        <p class="price">$@movie.moviePrice</p>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <button class="btn btn-default right">@Html.ActionLink("Rent", "OrderNow" , "ShoppingCart" ,new { id = movie.movieId },null)</button>

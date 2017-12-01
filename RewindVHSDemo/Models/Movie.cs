@@ -15,9 +15,9 @@ namespace RewindVHSDemo.Models
     public partial class Movie
     {
         public int movieId { get; set; }
-        public Nullable<int> filmYear { get; set; }
-        public string filmName { get; set; }
-        public Nullable<decimal> filmPrice { get; set; }
-        public string filmCast { get; set; }
+        public Nullable<int> movieYear { get; set; }
+        public string movieName { get; set; }
+        public Nullable<decimal> moviePrice { get; set; }
+        public string movieCast { get; set; }
     }
 }

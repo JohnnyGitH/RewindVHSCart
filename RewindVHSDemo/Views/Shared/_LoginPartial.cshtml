@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using RewindVHSDemo.Controllers
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -21,6 +22,10 @@ else
         @if (Session["cart"] != null)
         {
             <li>@Html.ActionLink("Cart","ReturnToCart","ShoppingCart", new { @class = "navbar-brand" })</li>
+            <lil>@{
+                     List<Item> cart = (List<Item>)Session["cart"];
+                     int count = cart.Count;
+                 } @count</lil>
         }
     </ul>
 }

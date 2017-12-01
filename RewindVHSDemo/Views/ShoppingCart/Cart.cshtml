@@ -45,16 +45,16 @@
                     <img class="cartThumbnail " src="~/Content/CoverImages/@(item.Movie.movieId).jpg" height="30px" />
                 </div>
                 <div class="col-md-2 rowPadding">
-                    @item.Movie.filmName
+                    @item.Movie.movieName
                 </div>
                 <div class="col-md-2 rowPadding">
-                    $@item.Movie.filmPrice
+                    $@item.Movie.moviePrice
                 </div>
                 <div class="col-md-2 rowPadding">
                     @item.Quantity
                 </div>
                 <div class="col-md-2 rowPadding">
-                    $@(item.Movie.filmPrice * item.Quantity)
+                    $@(item.Movie.moviePrice * item.Quantity)
                 </div>
             </div>
             <hr />
@@ -67,7 +67,7 @@
         }
         @foreach (Item item2 in (List<Item>)Session["cart"])
         {
-            double itemPrice = (double)item2.Movie.filmPrice;
+            double itemPrice = (double)item2.Movie.moviePrice;
              total = total + (itemPrice*item2.Quantity);
         }
     <div class="col-md-11"></div>

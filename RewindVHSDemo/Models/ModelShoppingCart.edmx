@@ -10,10 +10,10 @@
             <PropertyRef Name="movieId" />
           </Key>
           <Property Name="movieId" Type="int" Nullable="false" />
-          <Property Name="filmYear" Type="int" />
-          <Property Name="filmName" Type="varchar" MaxLength="50" />
-          <Property Name="filmPrice" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="filmCast" Type="varchar" MaxLength="255" />
+          <Property Name="movieYear" Type="int" />
+          <Property Name="movieName" Type="varchar" MaxLength="50" />
+          <Property Name="moviePrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="movieCast" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="MovieModelStoreContainer">
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
@@ -22,19 +22,19 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MovieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MovieEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Movies" EntityType="MovieModel.Movie" />
+        </EntityContainer>
         <EntityType Name="Movie">
           <Key>
             <PropertyRef Name="movieId" />
           </Key>
           <Property Name="movieId" Type="Int32" Nullable="false" />
-          <Property Name="filmYear" Type="Int32" />
-          <Property Name="filmName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="filmPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="filmCast" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="movieYear" Type="Int32" />
+          <Property Name="movieName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="moviePrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="movieCast" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="MovieEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Movies" EntityType="Self.Movie" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -44,11 +44,11 @@
           <EntitySetMapping Name="Movies">
             <EntityTypeMapping TypeName="MovieModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
-                <ScalarProperty Name="filmCast" ColumnName="filmCast" />
+                <ScalarProperty Name="movieCast" ColumnName="movieCast" />
+                <ScalarProperty Name="moviePrice" ColumnName="moviePrice" />
+                <ScalarProperty Name="movieName" ColumnName="movieName" />
+                <ScalarProperty Name="movieYear" ColumnName="movieYear" />
                 <ScalarProperty Name="movieId" ColumnName="movieId" />
-                <ScalarProperty Name="filmYear" ColumnName="filmYear" />
-                <ScalarProperty Name="filmName" ColumnName="filmName" />
-                <ScalarProperty Name="filmPrice" ColumnName="filmPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
