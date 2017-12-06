@@ -26,4 +26,10 @@ the total number of items in the cart
 
 Additionally , the "RewindVHS" link in the Top Left will always redirect the user back to the "Home Page".
 
-Technologies used - ASP.NET C# Razor HTML/CSS BootStrap Sessions Entity Framework
+Technologies used - 
+* ASP.NET 
+* C# 
+* Razor 
+* HTML/CSS BootStrap 
+* Sessions 
+* Entity Framework
